@@ -12,7 +12,7 @@ public class List
     public class Handler : IRequestHandler<Query, List<Activity>>
     {
         private readonly DataContext _context;
-        
+
         public Handler(DataContext context)
         {
             _context = context;
@@ -20,7 +20,7 @@ public class List
         
         public async Task<List<Activity>> Handle(Query request, CancellationToken cancellationToken)
         {
-            return await _context.Activities.ToListAsync();
+            return await _context.Activities.ToListAsync(cancellationToken);
         }
     }
 }
